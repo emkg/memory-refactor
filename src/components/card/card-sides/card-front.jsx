@@ -1,17 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../card.css";
+import styles from "../card.module.css";
 
-export const CardFront = ({ color }) => {
+export class CardFront extends React.Component {
+    
+    handleClick = () => {
+        this.props.onCardFlip(false);
+    }
+    render() {
+        const { color } = this.props;
+    
     return (
-        <div className="card">
-            <div className="card-front" />
+        <div className={styles.card} onClick={this.handleClick}>
+            <div className={styles.cardFront} style={{backgroundColor: color}} />
         </div>
     );
+    }
 }
 
 CardFront.propTypes = {
-    color: PropTypes.string.isRequired
+    color: PropTypes.string.isRequired,
+    onCardFlip: PropTypes.func.isRequired
 }
 
 export default CardFront;

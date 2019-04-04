@@ -1,6 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 html {
-    background-color: purple;
+    background-color: rgb(135, 155, 161);
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+}
+
+button {
+    border-radius: 5px;
+    width: 125px;
+    height: 50px;
+    font-family: 'Roboto';
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: black;
+    color: white;
+}
+
+.btn-primary:hover {
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background-color: pink;
+    color: black;
 }

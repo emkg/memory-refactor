@@ -5,18 +5,19 @@
     border: solid 2px black;
     border-radius: 5px;
     background-color: white;
+    cursor: pointer;
 
 }
 
-.card-back {
+.cardBack {
     background-image: url("../../images/adorable-animal-blur-406014.jpg");
     background-size: cover;
     background-position: center;
 }
 
-.card-front {
-    background-color: red;
+.cardFront {
     height: 90px;
     width: 90px;
     margin: 30px 5px;
 }
+

@@ -1,10 +1,21 @@
 import React from "react";
-import "../card.css";
+import PropTypes from "prop-types";
+import styles from "../card.module.css";
 
-export const CardBack = () => {
-    return (
-        <div className="card card-back"/>
-    );
+
+export class CardBack extends React.Component {
+    handleClick = () => {
+        this.props.onCardFlip(true);
+    }
+    render() {
+        return (
+            <div className={`${styles.card} ${styles.cardBack}`} onClick={this.handleClick} />
+        );  
+    }
+}
+
+CardBack.propTypes = {
+    onCardFlip: PropTypes.func.isRequired
 }
 
 export default CardBack;
