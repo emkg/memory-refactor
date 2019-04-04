@@ -1,7 +1,6 @@
 import React from "react";
 import CardFront from "./card-sides/card-front";
 import CardBack from "./card-sides/card-back";
-import styles from "./card.module.css";
 
 export default class Card extends React.Component {
     state = {
@@ -13,11 +12,14 @@ export default class Card extends React.Component {
     }
     
     getValue = () => {
+        // TODO: add random color value
+        // TODO: control enough to ensure two of each
         this.setState( {value: "red"})
     }
 
     handleCardFlip = ( faceUp ) => {
         this.setState({ faceUp });
+        // TODO: when card is flipped face up send value package to parent container
     }
 
     render() {

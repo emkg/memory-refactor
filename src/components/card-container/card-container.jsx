@@ -1,11 +1,11 @@
 import React from "react";
 import Card from "../card/card";
-import CardBack from "../card/card-sides/card-back";
-import CardFront from "../card/card-sides/card-front";
 import styles from "./card-container.module.css";
 
 export default class CardContainer extends React.Component {
     state = {};
+    // TODO: store the state of matches
+    // todo: control the number of cards that are faceUp at once
 
     render() {
         const { ready } = this.props;

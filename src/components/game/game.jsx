@@ -7,6 +7,11 @@ export default class Game extends React.Component {
     ready: false
   };
 
+  // TODO: use ready to show/hide all
+  // ready means the game is being played
+  // not ready means the game is not being played yet
+
+  // TODO: add points for matches
 
   render() {
     const { ready } = this.state;
