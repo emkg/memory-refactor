@@ -28,16 +28,29 @@ export class CardContainer extends React.Component {
     // TODO: store the state of matches
     // todo: control the number of cards that are faceUp at once
     handleCardsFlip = ({ faceUp, value }) => {
+        const { faceUpCards } = this.state;
         // check isFaceUp, count num face up
-        this.countNumFaceUpCards(faceUp);
+        const numFaceUpCards = this.countNumFaceUpCards(faceUp);
         // check value
-        //this.determineIsMatch(value);
+        let isMatch = false;
+        if(numFaceUpCards > 1) {
+             isMatch = this.determineIsMatch(faceUpCards, value);
+        } else {
+            faceUpCards.push(value);
+        }
+
+        this.setState({ faceUpCards, numFaceUpCards, isMatch })
     }
 
     countNumFaceUpCards = (faceUp) => {
         let countOfCardsFaceUp = this.state.numFaceUpCards;
         faceUp ? countOfCardsFaceUp++ : countOfCardsFaceUp--;
-        this.setState({ numFaceUpCards : countOfCardsFaceUp });
+        return countOfCardsFaceUp;
+    }
+
+    determineIsMatch = (faceUpCards, value) => {
+        const isMatch = faceUpCards.includes(value);
+        return isMatch;
     }
 
 
