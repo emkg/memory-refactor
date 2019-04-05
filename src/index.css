@@ -31,3 +31,15 @@ button {
     background-color: pink;
     color: black;
 }
+
+.padding-2 {
+    padding: .75rem;
+}
+
+.label {
+    font-family: "Roboto", sans-serif;
+    text-transform: lowercase;
+    font-size: 18px;
+    font-weight: 600;
+    
+}

@@ -26,8 +26,10 @@ export default class Game extends React.Component {
         return (
         
             <React.Fragment>
-                <button className="btn-primary" onClick={this.handlePushReady}>{ !ready ? "READY?" : "PEEK?" }</button>
-                MATCHES: {match}
+                <header>
+                    <button className="btn-primary" onClick={this.handlePushReady}>{ !ready ? "READY?" : "PEEK?" }</button>
+                    <span className="label padding-2">MATCHES: {match}</span>
+                </header>
                 <CardContainer onMatch={this.handleMatch} ready={ready} />
             </React.Fragment> 
         );

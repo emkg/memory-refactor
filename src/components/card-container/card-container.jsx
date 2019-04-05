@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { randomColor } from "randomcolor";
+import utils from "../../helpers/utils";
 import Card from "../card/card";
 import styles from "./card-container.module.css";
 
@@ -62,9 +63,9 @@ export class CardContainer extends React.Component {
     makeCards = () => {
         const halfCards = randomColor({ count: 4, hue: "random"});
         const halfCardsCopy = halfCards.slice(0);
-        const cards = halfCards.concat(halfCardsCopy);
+        let cards = halfCards.concat(halfCardsCopy);
+        cards = utils.arrayShuffle(cards)
         this.setState({ cards });
-        return cards;
     }
 
 
