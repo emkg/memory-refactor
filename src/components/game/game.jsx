@@ -4,7 +4,8 @@ import styles from './game.module.css';
 
 export default class Game extends React.Component {
     state = {
-        ready: false
+        ready: false,
+        match: 0
     };
 
 
@@ -15,17 +16,18 @@ export default class Game extends React.Component {
     }
 
     handleMatch = () => {
-        this.setState({ match : 1})
+        let { match } = this.state;
+        match++;
+        this.setState({ match });
     }
 
-    // TODO: add points for matches
-
     render() {
-    const { ready } = this.state;
+    const { ready, match } = this.state;
         return (
         
             <React.Fragment>
                 <button className="btn-primary" onClick={this.handlePushReady}>{ !ready ? "READY?" : "PEEK?" }</button>
+                MATCHES: {match}
                 <CardContainer onMatch={this.handleMatch} ready={ready} />
             </React.Fragment> 
         );
