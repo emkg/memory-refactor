@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { randomColor } from "randomcolor";
 import Card from "../card/card";
 import styles from "./card-container.module.css";
 
@@ -9,6 +10,10 @@ export class CardContainer extends React.Component {
         isMatch: false,
         faceUpCards: []
     };
+
+    componentWillMount() {
+        this.makeCards();
+    }
 
     componentWillUpdate(prevProps) {
         const { ready } = this.props;
@@ -54,13 +59,21 @@ export class CardContainer extends React.Component {
         return isMatch;
     }
 
+    makeCards = () => {
+        const halfCards = randomColor({ count: 4, hue: "random"});
+        const halfCardsCopy = halfCards.slice(0);
+        const cards = halfCards.concat(halfCardsCopy);
+        this.setState({ cards });
+        return cards;
+    }
+
 
     render() {
         const { ready } = this.props;
-        const cards = new Array(8).fill({});
+        const { cards } = this.state;
         return (
            <div className={styles.cardContainer}>
-                {cards.map(card => <Card ready={ready} onCardFlip={this.handleCardsFlip} />)}
+                {cards.map(card => <Card ready={ready} value={card} onCardFlip={this.handleCardsFlip} />)}
            </div>
 
         );
@@ -68,7 +81,8 @@ export class CardContainer extends React.Component {
 };
 
 CardContainer.propTypes = {
-    ready: PropTypes.bool.isRequired
+    ready: PropTypes.bool.isRequired,
+    onCardFlip: PropTypes.func.isRequired
 };
 
 export default CardContainer;

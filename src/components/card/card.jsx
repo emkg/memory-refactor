@@ -9,7 +9,7 @@ export class Card extends React.Component {
     };
 
     componentDidMount() {
-        this.getValue();
+        this.setValue(this.props.value);
     }
 
     componentDidUpdate(prevProps) {
@@ -20,10 +20,8 @@ export class Card extends React.Component {
         }
     }
     
-    getValue = () => {
-        // TODO: add random color value
-        // TODO: control enough to ensure two of each
-        this.setState( {value: "red"})
+    setValue = (value) => {
+        this.setState({ value })
     }
 
     handleCardFlip = ( faceUp ) => {
@@ -42,7 +40,8 @@ export class Card extends React.Component {
 };
 
 Card.propTypes = {
-    ready: PropTypes.bool.isRequired
+    ready: PropTypes.bool.isRequired,
+    onCardFlip: PropTypes.func.isRequired
 };
 
 export default Card;
