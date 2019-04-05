@@ -10,7 +10,6 @@ export default class Game extends React.Component {
 
     // ready means the game is being played
     // not ready means the user is taking a peek
-
     handlePushReady = () => {
         this.setState({ ready : !this.state.ready });
     }
