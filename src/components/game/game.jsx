@@ -3,29 +3,30 @@ import CardContainer from "../card-container/card-container";
 import styles from './game.module.css';
 
 export default class Game extends React.Component {
-  state = {
-    ready: false
-  };
+    state = {
+        ready: false
+    };
 
-  // TODO: use ready to show/hide all
-  // ready means the game is being played
-  // not ready means the game is not being played yet
 
-  // TODO: add points for matches
+    // ready means the game is being played
+    // not ready means the user is taking a peek
 
-  render() {
+    handlePushReady = () => {
+        this.setState({ ready : !this.state.ready });
+    }
+
+    // TODO: add points for matches
+
+    render() {
     const { ready } = this.state;
-    return (
+        return (
         
-        <React.Fragment>
-          {!ready && (<button className="btn-primary">READY?</button>)}
-          <CardContainer ready={ready} />
-        </React.Fragment>
-    
-
-      
-    );
-  }
-}
+            <React.Fragment>
+                <button className="btn-primary" onClick={this.handlePushReady}>{ !ready ? "READY?" : "PEEK?" }</button>
+                <CardContainer ready={ready} />
+            </React.Fragment> 
+        );
+    }
+};
 
 
