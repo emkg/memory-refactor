@@ -15,6 +15,10 @@ export default class Game extends React.Component {
         this.setState({ ready : !this.state.ready });
     }
 
+    handleMatch = () => {
+        this.setState({ match : 1})
+    }
+
     // TODO: add points for matches
 
     render() {
@@ -23,7 +27,7 @@ export default class Game extends React.Component {
         
             <React.Fragment>
                 <button className="btn-primary" onClick={this.handlePushReady}>{ !ready ? "READY?" : "PEEK?" }</button>
-                <CardContainer ready={ready} />
+                <CardContainer onMatch={this.handleMatch} ready={ready} />
             </React.Fragment> 
         );
     }
